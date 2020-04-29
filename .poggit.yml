@@ -1,0 +1,10 @@
+--- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/PJZ9n/QuitMessage
+build-by-default: true
+branches:
+- master
+projects:
+  QuitMessage:
+    libs:
+      - src: jojoe77777/FormAPI/libFormAPI
+        version: 1.3.0
+...
