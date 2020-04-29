@@ -21,7 +21,7 @@
 
 declare(strict_types=1);
 
-namespace PJZ9n\Template;
+namespace PJZ9n\QuitMessage;
 
 use pocketmine\plugin\PluginBase;
 
