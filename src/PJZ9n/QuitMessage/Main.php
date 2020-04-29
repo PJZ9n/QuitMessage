@@ -23,11 +23,30 @@ declare(strict_types=1);
 
 namespace PJZ9n\QuitMessage;
 
+use pocketmine\event\Listener;
+use pocketmine\event\player\PlayerQuitEvent;
 use pocketmine\plugin\PluginBase;
 
-class Main extends PluginBase
+class Main extends PluginBase implements Listener
 {
     
-    //
+    public function onEnable(): void
+    {
+        $this->saveDefaultConfig();
+        
+        $this->getServer()->getPluginManager()->registerEvents($this, $this);
+    }
+    
+    /**
+     * @param PlayerQuitEvent $event
+     *
+     * @priority MONITOR
+     * @ignoreCancelled
+     */
+    public function onPlayerQuit(PlayerQuitEvent $event): void
+    {
+        $message = $this->getConfig()->get("message");
+        $this->getServer()->broadcastMessage($message);
+    }
     
 }
